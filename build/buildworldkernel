@@ -1,0 +1,21 @@
+#!/bin/sh
+HOST=`hostname`
+JOBS=2
+PID=`/usr/local/sbin/buildprocspid`
+VER=`/usr/local/sbin/srccodeversion`
+DATETIME=`date +%Y%m%d%H%M%S`
+MAIL=admin@example.com 
+
+if [ -z $PID ]  ;
+ then
+ (cd /usr/src; (  nohup make -j $JOBS buildworld buildkernel 2>&1 >/var/log/mkwk-$VER-$DATETIME.log ; echo build complete at $HOST |   mail -s $HOST 'makebuildkernel buildkernel  completed. ' $MAIL) & )
+
+ sleep 3
+PID=`/usr/local/sbin/buildprocspid`
+
+ echo build start on $HOST  .. | mail -s $HOST ' make buildworld buildkernel start.' $MAIL
+
+else
+
+fi
+ echo "building now at pid = " $PID
