@@ -1,0 +1,8 @@
+#!/bin/sh
+# 
+#
+#
+#
+JOBS=2
+
+ps ax | grep "make -j$JOBS buildworld buildkernel" | grep -v grep  | awk '{print $1}' | head -1
