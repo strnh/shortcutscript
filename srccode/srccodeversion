@@ -1,0 +1,5 @@
+#!/bin/sh
+REVISION=`cat /usr/src/sys/conf/newvers.sh | grep REVISION | head -1 | awk 'BEGIN{FS="="}{gsub("\"","");print $2}'`
+BRANCH=`cat /usr/src/sys/conf/newvers.sh | grep BRANCH | head -1 | awk 'BEGIN{FS="="}{gsub("\"","");print $2}'`
+
+echo $REVISION-$BRANCH
