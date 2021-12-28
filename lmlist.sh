@@ -1,4 +1,15 @@
 #!/bin/sh
+#  require : /usr/local/bin/nmblookup from net/samba41[2-3]
+#
+#  usage: 
+# example: 
+# #./lmlist
+#  172.20.1.105 WKSTN105
+#  172.20.1.133 WS5220DN667C
+#  172.20.1.102 WKSTN102
+#  172.20.1.22 TX2550
+#
+#
  arp -a | grep  \? |\
  awk '{ gsub("[()]","") ; print "timeout 1 nmblookup -A -f " $2 }'  |\
  sh | grep -A3 Look |\
