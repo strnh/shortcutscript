@@ -3,4 +3,5 @@
 ## Tool for FreeBSD server management.
 
 A deposit of one-liners used for day-to-day management.
-It includes a modest tool for gaining peace of mind by making the OS hardware buildable and executable while wasting computing resources.
+It includes tools that give you some peace of mind by verifying the relationship between the OS source code and the hardware and making it buildable and executable while wasting computing resources.
+
