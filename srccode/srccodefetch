@@ -1,0 +1,7 @@
+#!/bin/sh
+SVN=svnlite
+SYSVER=`uname -a | awk '{print $3 }' | awk 'BEGIN{FS="-"}{print $1 }'`
+URL=`cd /usr/src; $SVN info | grep URL | awk /^URL/'{print $2}'`
+
+
+$SVN co $URL /usr/src
