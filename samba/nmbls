@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/local/bin/smbstatus -b | awk 'NF>3{ print "timeout 1 nmblookup -A -f " $(NF-4) }'  | sh | grep -A3 Look | awk '{ if ($1=="Looking") { n++ ; ipaddr[n]=$5; } if($2=="<20>") { arec[n]=$1 }  } END { for (i in ipaddr) { if (!(arec[i]=="")) print ipaddr[i],arec[i] }} ' | grep -v 0.0.0.0 | sort | uniq
