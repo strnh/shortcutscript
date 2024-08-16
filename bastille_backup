@@ -1,0 +1,5 @@
+#!/bin/sh
+# DESCRIPTION: for ease to backup with FreeBSD-jail companion tool BastilleBSD
+#
+#
+/usr/local/bin/bastille list | grep -v Hostname | awk '{ print $3 }' | while read x ; do /usr/local/bin/bastille export --xz $x ; done
