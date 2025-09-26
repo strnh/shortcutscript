@@ -1,0 +1,6 @@
+#!/bin/sh
+# hostid_num 
+# 
+# Desc: from "/etc/machine-id" to decimal "hostid" 
+#
+echo "ibase=16;obase=0A;$(cat /etc/machine-id| tr \[:lower:\] \[:upper:\])"  | bc
